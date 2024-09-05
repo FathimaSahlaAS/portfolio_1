@@ -7,28 +7,10 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 
-//import ParallaxSection from './components/ParallaxSection';
-
-
-/*function App() {
-  return (
-    <div>
-      <Hero />
-      <Skills />
-      <ParallaxSection />
-      <Projects />
-      <Contact />
-      <About />
-      <Education />
-      <Experience />
-      <Certificates />
-    </div>
-  );
-}*/
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero />} />
