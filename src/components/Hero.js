@@ -1,124 +1,56 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import profilePic from '../Images/profilepic.png';
+import { useEffect } from "react";
 
-// Keyframe for typewriter effect
-const typing = keyframes`
-  from { width: 0; }
-  to { width: 100%; }
-`;
+function Hero() {
 
-const blink = keyframes`
-  from { border-right-color: rgba(255, 255, 255, 0.75); }
-  to { border-right-color: transparent; }
-`;
+  useEffect(() => {
+    const pw = document.getElementById("profileWrapper");
 
-const HeroContainer = styled.div`
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #122240;
-  color: white;
-  padding: 0 10%;
-`;
+    if (!pw) return;
 
-const TextContainer = styled.div`
-  max-width: 50%;
-`;
+    const colors = ["#38bdf8", "#7c3aed", "#10b981"];
 
-const Title = styled.h1`
-  font-size: 3rem;
-  font-weight: bold;
-  margin: 10px 0;
-`;
-
-const Subtitle = styled.h3`
-  font-size: 2rem;
-  margin: 10px 0;
-  overflow: hidden;
-  border-right: 2px solid rgba(255, 255, 255, 0.75); /* Cursor effect */
-  white-space: nowrap;
-  animation: ${typing} 4s steps(40, end), ${blink} 0.75s step-end infinite;
-`;
-
-const Description = styled.p`
-  font-size: 1.2rem;
-  margin-top: 20px;
-  line-height: 1.5;
-  max-width: 80%;
-`;
-
-const ContactLinks = styled.div`
-  margin-top: 20px;
-
-  a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 2rem;
-    transition: color 0.3s ease-in-out;
-
-    &:hover {
-      color: #61dafb;
+    for (let i = 0; i < 10; i++) {
+      const p = document.createElement("div");
+      p.className = "pparticle";
+      p.style.setProperty("--s", `${(i / 10) * 360}deg`);
+      p.style.setProperty("--r", `${90 + i * 5}px`);
+      p.style.background = colors[i % colors.length];
+      pw.appendChild(p);
     }
-  }
-`;
+  }, []);
 
-const ProfileImageContainer = styled.div`
-  position: relative;
-  max-width: 300px;
-`;
-
-const ProfileImage = styled.img`
-  width: 100%;
-  border-radius: 50%;
-  border: 8px solid white;
-  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.3); /* Glowing effect */`;
-  ;
-
-const Hero = () => (
-  <HeroContainer>
-    <TextContainer>
-    <Title>Hello, It's Me</Title>
-    <Title>Fathima Sahla</Title>
-    <Subtitle>Bsc Hons Information Technology</Subtitle>
-    <Description>
-        I'm an IT undergraduate at the University of Moratuwa with a passion for software development,
-        web design, and technology innovation.
-      </Description>
-    <ContactLinks>
-      <a href="mailto:asfathimasahla@gmail.com">
-        <FontAwesomeIcon icon={faEnvelope} />
-      </a>
-      <a href="https://linkedin.com/in/fathima-sahla" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
-      <a href="https://github.com/FathimaSahlaAS" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={faGithub} />
-      </a>
-    </ContactLinks>
-    </TextContainer>
-    <ProfileImageContainer>
-    <ProfileImage src={profilePic} alt="Profile" /> 
-    </ProfileImageContainer>   
-  </HeroContainer>
-);
+  return (
+   <section id="hero">
+  <div class="hero-text">
+    <p class="hero-greeting">Hello, It's Me</p>
+    <h1 class="hero-name">Fathima Sahla</h1>
+    <p class="hero-title">BSc Hons Information Technology</p>
+    <p class="hero-desc">An IT undergraduate at the University of Moratuwa with a passion for software development, web design, and technology innovation — driven by the challenge of solving complex problems.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-socials">
+      <a href="mailto:asfathimasahla@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/fathima-sahla-159255288/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/FathimaSahlaAS" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="profile-3d-wrapper" id="profileWrapper">
+      <div class="profile-ring"></div>
+      <div class="profile-ring"></div>
+      <div class="profile-ring"></div>
+      <div class="profile-hex"></div>
+      <div class="profile-img-container">
+        
+        <img src="https://ui-avatars.com/api/?name=Fathima+Sahla&size=300&background=0a1628&color=38bdf8&bold=true&font-size=0.32" alt="Fathima Sahla"></img>
+      </div>
+      <div class="profile-glow"></div>
+    </div>
+  </div>
+</section>
+  );
+}
 
 export default Hero;
-
-
-
-
-
-
-
-
-
-
-
-
-

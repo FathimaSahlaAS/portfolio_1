@@ -1,73 +1,131 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const SkillsContainer = styled.div`
-  padding:100px 50px;
-  background: #122240;
-  height: 100vh;
-  color: white;
-   display: flex;
-  justify-content: space-between;
-`;
+const Skills = () => {
 
-const SkillSet = styled.div`
-  flex: 1;
-  margin: 0 20px; /* Margin to create some space between the columns */
-`;
+  return (
+   <section id="skills">
+  <div className="section-header fade-in">
+    <div className="section-tag">What I know</div>
+    <h2 className="section-title">Skills</h2>
+  </div>
 
-const Skill = styled.div`
-  margin-bottom: 10px;
-`;
+  <div className="skills-grid fade-in">
 
-const SkillTitle = styled.span`
-  font-size: 1.5rem; /* Bigger text for the title before colon */
-  font-weight: bold;
-`;
+    {/* LEFT CARD */}
+    <div className="glass-card">
+      <div className="skill-category-title">
+        <i className="fas fa-code"></i> Technical Skills
+      </div>
 
-const SkillDetail = styled.span`
-  font-size: 1rem; /* Smaller text for the detail after colon */
-`;
+      {/* Languages */}
+      <div style={{ marginBottom: "1.3rem" }}>
+        <div style={{
+          fontSize: "0.74rem",
+          textTransform: "uppercase",
+          letterSpacing: "1px",
+          color: "var(--muted)",
+          marginBottom: "0.6rem"
+        }}>
+          Languages
+        </div>
 
-const Skills = () => (
-  <SkillsContainer>
-    <SkillSet>
-      <h1>Technical Skills</h1>
-      <Skill>
-        <SkillTitle>Programming Languages:</SkillTitle><br></br>
-        <SkillDetail> Java, C, Python</SkillDetail>
-      </Skill>
-      <Skill>
-        <SkillTitle>Web Development:</SkillTitle><br></br>
-        <SkillDetail> React, HTML, CSS, Django, JavaScript, Node.js</SkillDetail>
-      </Skill>
-      <Skill>
-        <SkillTitle>Database:</SkillTitle><br></br>
-        <SkillDetail> MySQL, SQLite, MsSQL</SkillDetail>
-      </Skill>
-      <Skill>
-        <SkillTitle>IDE:</SkillTitle><br></br>
-        <SkillDetail> VS Code, Intellij Idea</SkillDetail>
-      </Skill>
-      <Skill>
-        <SkillTitle>Version Control:</SkillTitle><br></br>
-        <SkillDetail> Git, GitHub</SkillDetail>
-      </Skill>
-      <Skill>
-        <SkillTitle>Other:</SkillTitle><br></br>
-        <SkillDetail> Gimp, Blender, Sketchup, Canva</SkillDetail>
-      </Skill>
-    </SkillSet>
+        <div className="skill-chips">
+          <span className="chip">Java</span>
+          <span className="chip">C</span>
+          <span className="chip">Python</span>
+          <span className="chip">Dart</span>
+        </div>
+      </div>
 
-    <SkillSet>
-      <h1>Soft Skills</h1>
-      <Skill>Time Management</Skill>
-      <Skill>Team Collaboration</Skill>
-      <Skill>Critical Thinking</Skill>
-      <Skill>Problem Solving</Skill>
-      <Skill>Communication</Skill>
-      <Skill>Adaptability</Skill>
-    </SkillSet>
-  </SkillsContainer>
-);
+      {/* Web & Mobile */}
+      <div style={{ marginBottom: "1.3rem" }}>
+        <div style={{
+          fontSize: "0.74rem",
+          textTransform: "uppercase",
+          letterSpacing: "1px",
+          color: "var(--muted)",
+          marginBottom: "0.6rem"
+        }}>
+          Web & Mobile
+        </div>
+
+        <div className="skill-chips">
+          <span className="chip">React</span>
+          <span className="chip">React Native</span>
+          <span className="chip">Next.js</span>
+          <span className="chip">Flutter</span>
+          <span className="chip">HTML</span>
+          <span className="chip">CSS</span>
+          <span className="chip">Tailwind CSS</span>
+          <span className="chip">JavaScript</span>
+          <span className="chip">Node.js</span>
+          <span className="chip">Django</span>
+        </div>
+      </div>
+
+      {/* Database */}
+      <div style={{ marginBottom: "1.3rem" }}>
+        <div style={{
+          fontSize: "0.74rem",
+          textTransform: "uppercase",
+          letterSpacing: "1px",
+          color: "var(--muted)",
+          marginBottom: "0.6rem"
+        }}>
+          Database
+        </div>
+
+        <div className="skill-chips">
+          <span className="chip">MySQL</span>
+          <span className="chip">SQLite</span>
+          <span className="chip">MsSQL</span>
+          <span className="chip">MongoDB</span>
+        </div>
+      </div>
+
+      {/* Tools */}
+      <div>
+        <div style={{
+          fontSize: "0.74rem",
+          textTransform: "uppercase",
+          letterSpacing: "1px",
+          color: "var(--muted)",
+          marginBottom: "0.6rem"
+        }}>
+          Tools & Cloud
+        </div>
+
+        <div className="skill-chips">
+          <span className="chip">Git</span>
+          <span className="chip">GitHub</span>
+          <span className="chip">AWS S3</span>
+          <span className="chip">VS Code</span>
+          <span className="chip">IntelliJ</span>
+          <span className="chip">Blender</span>
+          <span className="chip">Canva</span>
+        </div>
+      </div>
+    </div>
+
+    {/* RIGHT CARD */}
+    <div className="glass-card">
+      <div className="skill-category-title">
+        <i className="fas fa-users"></i> Soft Skills
+      </div>
+
+      <div className="soft-skills-list">
+        <div className="soft-item"><i className="fas fa-clock"></i> Time Management</div>
+        <div className="soft-item"><i className="fas fa-handshake"></i> Team Collaboration</div>
+        <div className="soft-item"><i className="fas fa-brain"></i> Critical Thinking</div>
+        <div className="soft-item"><i className="fas fa-puzzle-piece"></i> Problem Solving</div>
+        <div className="soft-item"><i className="fas fa-comments"></i> Communication</div>
+        <div className="soft-item"><i className="fas fa-sync-alt"></i> Adaptability</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  );
+};
 
 export default Skills;
