@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes, css } from "styled-components";
+import PropTypes from "prop-types";
 
 /* ─────────────────────────────────────────
    Project Data  (descriptions from actual project docs)
@@ -435,7 +436,9 @@ const LinkBtn = styled.a`
 const ProjectModal = ({ proj, onClose }) => {
   useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    // eslint-disable-next-line no-undef
     window.addEventListener('keydown', handler);
+    // eslint-disable-next-line no-undef
     return () => window.removeEventListener('keydown', handler);
   }, [onClose]);
 
@@ -478,8 +481,8 @@ const ProjectModal = ({ proj, onClose }) => {
             <>
               <SectionLabel>Key Highlights</SectionLabel>
               <HighlightRow>
-                {proj.highlights.map((h, i) => (
-                  <HighlightChip key={i}>✦ {h}</HighlightChip>
+                {proj.highlights.map((h) => (
+                  <HighlightChip key={h}>✦ {h}</HighlightChip>
                 ))}
               </HighlightRow>
             </>
@@ -496,7 +499,7 @@ const ProjectModal = ({ proj, onClose }) => {
           {/* Tech Stack */}
           <SectionLabel>Tech Stack</SectionLabel>
           <TechRow>
-            {proj.techs.map((t, i) => <TechChip key={i}>{t}</TechChip>)}
+            {proj.techs.map((t) => <TechChip key={t}>{t}</TechChip>)}
           </TechRow>
 
           {/* Links */}
@@ -517,6 +520,26 @@ const ProjectModal = ({ proj, onClose }) => {
       </Modal>
     </Overlay>
   );
+};
+
+ProjectModal.propTypes = {
+  proj: PropTypes.shape({
+    title: PropTypes.string,
+    year: PropTypes.string,
+    desc: PropTypes.string,
+    overview: PropTypes.string,
+    fullDesc: PropTypes.string,
+    img: PropTypes.string,
+    modalImg: PropTypes.string,
+    badge: PropTypes.string,
+    techs: PropTypes.arrayOf(PropTypes.string),
+    github: PropTypes.string,
+    live: PropTypes.string,
+    role: PropTypes.string,
+    duration: PropTypes.string,
+    highlights: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 /* ─────────────────────────────────────────
@@ -547,12 +570,13 @@ const Projects = () => {
         </div>
 
         <div className="projects-grid fade-in">
-          {projects.map((proj, index) => (
-            <div
+          {projects.map((proj) => (
+            <button
               className="project-card"
-              key={index}
+              key={proj.title}
               onClick={() => setSelected(proj)}
               style={{ cursor: 'pointer' }}
+              aria-label={`View details for ${proj.title}`}
             >
               {/* ── Image (unchanged) ── */}
               <div className="project-img">
@@ -570,8 +594,8 @@ const Projects = () => {
                 <p className="project-desc">{proj.desc}</p>
 
                 <div className="project-techs">
-                  {proj.techs.map((tech, i) => (
-                    <span className="tech-chip" key={i}>{tech}</span>
+                  {proj.techs.map((tech) => (
+                    <span className="tech-chip" key={tech}>{tech}</span>
                   ))}
                 </div>
 
@@ -600,7 +624,7 @@ const Projects = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </section>
