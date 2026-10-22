@@ -60,6 +60,7 @@ const Skills = () => {
           <span className="chip">JavaScript</span>
           <span className="chip">Node.js</span>
           <span className="chip">Django</span>
+          <span className="chip">TypeScript</span>
         </div>
       </div>
 

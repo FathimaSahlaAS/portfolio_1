@@ -27,7 +27,7 @@ const Academics = () => {
         Pursuing a degree with focus on software engineering, web development, systems design, and IoT applications.
       </div>
 
-      <span className="edu-badge badge-sgpa">✦ SGPA: 3.46 / 4.00</span>
+      <span className="edu-badge badge-sgpa">✦ CGPA: 3.11 / 4.00</span>
     </div>
 
     {/* SCHOOL (A/L + O/L COMBINED) */}
@@ -43,9 +43,6 @@ const Academics = () => {
 
       {/* A/L */}
       <div className="edu-degree">GCE Advanced Level — Biological Science</div>
-      <div className="edu-detail">
-        Physics — C, Chemistry — B, Biology — C
-      </div>
 
       <div className="grade-pills">
         <span className="grade-pill">Physics — C</span>

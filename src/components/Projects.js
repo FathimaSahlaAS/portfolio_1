@@ -29,7 +29,7 @@ This project gave me deep hands-on experience with real-world software engineeri
     modalImg: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&h=400&fit=crop",
     badge: "Internship",
     techs: ["Next.js", "Tailwind CSS", "MongoDB", "JWT", "AWS S3"],
-    github: "https://github.com/FathimaSahlaAS",
+    github: "https://github.com/FathimaSahlaAS/EShop",
     role: "Full-Stack Developer Intern",
     duration: "Feb 2025 – Aug 2025 · 6 months",
     highlights: ["Admin Dashboard", "JWT Auth", "AWS S3", "Order Management", "20+ Bug Fixes"],
